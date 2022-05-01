@@ -2,13 +2,16 @@ import React from "react";
 import { startLogin } from "../actions/auth";
 import { useState } from "react";
 
-const LoginPage = () => {
-  const handleSubmit = (e) => {
+const LoginPage = ({ handleLogin }) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const { username, password } = document.forms[0];
 
-    startLogin({ email: username.value, password: password.value });
-    
+    startLogin(
+      { email: username.value, password: password.value },
+      handleLogin
+    );
+    //
   };
 
   const [loginData, setLoginData] = useState({
@@ -20,7 +23,7 @@ const LoginPage = () => {
     <div className="box-layout">
       <div className="box-layout__box">
         <form onSubmit={handleSubmit}>
-          <h1 className="box-layout__title">Task Manager</h1>
+          <h1 className="box-layout__title">Log in</h1>
           <input type="text" name="username" placeholder="email" />
           <input type="password" name="password" placeholder="password" />
 

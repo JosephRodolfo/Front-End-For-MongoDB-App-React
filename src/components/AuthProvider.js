@@ -22,10 +22,15 @@ const AuthProvider = ({ children }) => {
     setToken(null);
   };
 
+  const handleCreateUser = (user) =>{
+    setToken(user.token)
+  }
+
   const value = {
     token,
     onLogin: handleLogin,
     onLogout: handleLogout,
+    onCreateUser: handleCreateUser,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider> 

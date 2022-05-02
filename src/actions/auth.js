@@ -38,3 +38,29 @@ export const startLogout = async (token, callback) => {
       console.error("Error:", error);
     });
 };
+
+export const startCreateUser = async (
+  createUserInfo,
+  callback,
+  redirectOnSuccess
+) => {
+  console.log(createUserInfo);
+  fetch(`${process.env.REACT_APP_PORT}/users`, {
+    method: "POST",
+
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(createUserInfo),
+  })
+    .then((response) => response.json())
+
+    .then((data) => {
+      console.log(data);
+      callback(data);
+      redirectOnSuccess();
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+};

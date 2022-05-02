@@ -1,17 +1,28 @@
 import React from "react";
 import { startLogin } from "../actions/auth";
 import { useAuth } from "./AuthProvider";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const LoginPage = () => {
+  const navigate = useNavigate()
+  const location = useLocation();
   const { onLogin } = useAuth();
 
+
+
   const handleSubmit = async (e) => {
+
     e.preventDefault();
     const { username, password } = document.forms[0];
 
     startLogin(
       { email: username.value, password: password.value },
-      onLogin
+      onLogin,
+      ()=>{
+        const previousLocation = location.state?.from?.pathname || '/dashboard';
+
+        navigate(previousLocation)}
+
     );
   };
 

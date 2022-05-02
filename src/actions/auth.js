@@ -1,4 +1,4 @@
-export const startLogin = async (loginInfo, callback) => {
+export const startLogin = async (loginInfo, callback, redirectOnSuccess) => {
   fetch(`${process.env.REACT_APP_PORT}/users/login`, {
     method: "POST",
 
@@ -9,7 +9,14 @@ export const startLogin = async (loginInfo, callback) => {
   })
     .then((response) => response.json())
     .then((data) => {
+      console.log(data);
       callback(data);
+
+      if (data.token) {
+        redirectOnSuccess();
+      } else {
+        return;
+      }
     })
     .catch((error) => {
       console.error("Error:", error);

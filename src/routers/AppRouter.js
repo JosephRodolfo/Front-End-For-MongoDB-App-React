@@ -1,20 +1,16 @@
-import React from "react";
 import LoginPage from "../components/LoginPage";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Dashboard from "../components/Dashboard";
 import NoMatch from "../components/NoMatch";
 import { Navigation } from "../components/Navigation";
-import AuthProvider from "../components/AuthProvider"
-
+import ProtectedRoute from "./ProtectedRoutes";
+import SignupPage from "../components/SignupPage"
 
 
 function AppRouter() {
    
 
-  
-
   return (
-    <AuthProvider>
     <BrowserRouter>
       <h1>Task Manager</h1>
 
@@ -22,12 +18,18 @@ function AppRouter() {
       <Routes>
         <Route index element={<LoginPage />} />
         <Route path="login" element={<LoginPage/>} />
-        <Route path="dashboard" element={<Dashboard />} />
+        <Route
+          path="dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }/>
+         <Route path="signup" element={<SignupPage/>} />
 
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </BrowserRouter>
-    </AuthProvider>
   );
 }
 

@@ -1,23 +1,19 @@
 import React from "react";
 import { startLogin } from "../actions/auth";
-import { useState } from "react";
+import { useAuth } from "./AuthProvider";
 
-const LoginPage = ({ handleLogin }) => {
+const LoginPage = () => {
+  const { onLogin } = useAuth();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { username, password } = document.forms[0];
 
     startLogin(
       { email: username.value, password: password.value },
-      handleLogin
+      onLogin
     );
-    //
   };
-
-  const [loginData, setLoginData] = useState({
-    email: "",
-    password: "",
-  });
 
   return (
     <div className="box-layout">

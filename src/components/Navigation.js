@@ -1,10 +1,14 @@
 import { NavLink } from "react-router-dom";
 import { startLogout } from "../actions/auth";
+import { useAuth } from "./AuthProvider";
 
-export const Navigation = ({token, handleLogout}) => {
+export const Navigation = () => {
+
+    const { onLogout, token } = useAuth();
+
 
    const  logout = async () =>{
-    startLogout(token, handleLogout)
+    startLogout(token, onLogout)
     
    }
 

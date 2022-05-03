@@ -35,5 +35,38 @@ export const deleteTask = async (token, idParam, setState) => {
       throw new Error(`HTTP error: ${response.status}`);
     }
 
-  } catch (e) {}
+  } catch (e) {
+    console.error(`Could not delete task: ${e}`);
+
+  }
 };
+
+export const startCreateTask = async (taskInfo, token, setTasks) =>{
+
+  try {
+    const response = await fetch(
+      `${process.env.REACT_APP_PORT}/tasks`,
+      {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${token}`,
+          "Content-Type": "application/json",
+
+        },
+        body: JSON.stringify(taskInfo),
+
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(`HTTP error: ${response.status}`);
+    }
+    let data = await response.json();
+    setTasks(data);
+  } catch (e) {
+    console.error(`Could not add task: ${e}`);
+
+  }
+
+
+}

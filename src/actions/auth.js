@@ -9,7 +9,6 @@ export const startLogin = async (loginInfo, callback, redirectOnSuccess) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       callback(data);
 
       if (data.token) {
@@ -44,7 +43,6 @@ export const startCreateUser = async (
   callback,
   redirectOnSuccess
 ) => {
-  console.log(createUserInfo);
   fetch(`${process.env.REACT_APP_PORT}/users`, {
     method: "POST",
 
@@ -56,7 +54,6 @@ export const startCreateUser = async (
     .then((response) => response.json())
 
     .then((data) => {
-      console.log(data);
       callback(data);
       redirectOnSuccess();
     })

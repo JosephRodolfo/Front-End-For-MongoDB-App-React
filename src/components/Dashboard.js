@@ -3,6 +3,7 @@ import { useAuth } from "./AuthProvider";
 import { useEffect } from "react";
 import { fetchTasks, deleteTask } from "../actions/tasks";
 import moment from "moment";
+import { CreateTask } from "./CreateTask";
 
 const Dashboard = () => {
   const { token } = useAuth();
@@ -11,12 +12,20 @@ const Dashboard = () => {
   useEffect(() => {
     
     fetchTasks(token, setTasks);
-  }, [token, tasks]);
+  }, [token]);
+
+
+  const handleCreateTaskParent = (task) => {
+    console.log("parent fired", task);
+    let newTasks = tasks.concat(task);
+    setTasks(newTasks);
+  }
+
 
   return (
     <div>
       <h1>Task Dashboard</h1>
-
+      <CreateTask createTaskParent={handleCreateTaskParent}/>
       {token ? (
         tasks.map((element, index) => {
           return (

@@ -19,7 +19,7 @@ export const fetchTasks = async (token, setState) => {
   }
 };
 
-export const deleteTask = async (token, idParam, setState) => {
+export const deleteTask = async (token, idParam) => {
   try {
     const response = await fetch(
       `${process.env.REACT_APP_PORT}/tasks/${idParam}`,
@@ -57,5 +57,34 @@ export const startCreateTask = async (taskInfo, token, setTasks) => {
     setTasks(data);
   } catch (e) {
     console.error(`Could not add task: ${e}`);
+  }
+};
+
+export const editTask = async (token, idParam, taskInfo, callback) => {
+  if (taskInfo.hasOwnProperty("description") && taskInfo.description === "") {
+    delete taskInfo.description;
+  }
+
+  try {
+    const response = await fetch(
+      `${process.env.REACT_APP_PORT}/tasks/${idParam}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(taskInfo),
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(`HTTP error: ${response.status}`);
+    }
+
+    let data = await response.json();
+    callback(data);
+  } catch (e) {
+    console.error(`Could not edit task: ${e}`);
   }
 };

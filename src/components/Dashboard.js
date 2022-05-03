@@ -1,29 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useAuth } from "./AuthProvider";
-import { useEffect } from "react";
-import { fetchTasks, deleteTask } from "../actions/tasks";
-import moment from "moment";
+import { fetchTasks, deleteTask, editTask } from "../actions/tasks";
 import { CreateTask } from "./CreateTask";
 import Task from "./Task";
 
 const Dashboard = () => {
   const { token } = useAuth();
   const [tasks, setTasks] = useState([]);
-  const [edited, setEdit] = useState(true);
 
   useEffect(() => {
     fetchTasks(token, setTasks);
   }, [token]);
 
   const handleCreateTaskParent = (task) => {
-    console.log("parent fired", task);
     let newTasks = tasks.concat(task);
     setTasks(newTasks);
-  };
-
-  const handleEditClick = () => {
-    let reverse = !edited;
-    setEdit(reverse);
   };
 
   const deleteTaskHandler = (taskToDeleteId) => {
@@ -34,6 +25,15 @@ const Dashboard = () => {
     deleteTask(token, taskToDeleteId);
   };
 
+  const editTaskHandler = (id, taskInfo) => {
+    editTask(token, id, taskInfo, async (task) => {
+      const editedTasks = tasks.map(element =>  {
+        return element._id === task._id ? element = task : element;
+      } );
+      setTasks(editedTasks);
+    });
+  };
+
   return (
     <div>
       <h1>Task Dashboard</h1>
@@ -42,8 +42,10 @@ const Dashboard = () => {
       {tasks.map((element, index) => {
         return (
           <Task
+            key={index}
             index={index}
             taskDeleteParent={deleteTaskHandler}
+            taskEditParent={editTaskHandler}
             content={element}
           />
         );
@@ -52,6 +54,3 @@ const Dashboard = () => {
   );
 };
 export default Dashboard;
-{
-  /* {(element.completed) ? <input type="checkbox" checked="true"/> :  <input type="checkbox" checked="true"/>} */
-}

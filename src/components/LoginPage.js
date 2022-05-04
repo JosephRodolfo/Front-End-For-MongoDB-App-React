@@ -32,8 +32,9 @@ const LoginPage = () => {
       <h1 className="box-layout__title">Log in</h1>
         <form className="form" onSubmit={handleSubmit}>
           <div className="input-group">
-          <input className=".input-group__item text-input" type="text" name="username" placeholder="email" />
-          <input className=".input-group__item text-input" type="password" name="password" placeholder="password" />
+          <input aria-label="username" className=".input-group__item text-input" type="text" id="username" name="username" placeholder="email" />
+
+          <input aria-label="password"  className=".input-group__item text-input" id="password" type="password" name="password" placeholder="password" />
 
           <button className=".input-group__item button" type="submit">
             Log in

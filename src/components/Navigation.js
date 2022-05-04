@@ -11,11 +11,11 @@ export const Navigation = () => {
 
   return (
     <nav className="navigation">
-      <NavLink to="/login">Login</NavLink>
-      <NavLink to="/dashboard">Dashboard</NavLink>
-      <NavLink to="/signup">Signup</NavLink>
+      <NavLink className='navlinks' to="/login">Login</NavLink>
+      <NavLink className='navlinks'to="/dashboard">Dashboard</NavLink>
+      <NavLink className='navlinks' to="/signup">Signup</NavLink>
       {token && (
-        <button type="button" onClick={logout}>
+        <button className="button button--secondary" type="button" onClick={logout}>
           Sign Out
         </button>
       )}

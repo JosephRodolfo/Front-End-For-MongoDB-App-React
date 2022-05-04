@@ -2,7 +2,7 @@ import React from "react";
 import moment from "moment";
 import { useState } from "react";
 
-const Task = (props) => {
+const Task = ({taskDeleteParent, taskEditParent, index, content}) => {
   const [edited, setEdit] = useState(true);
 
   const handleEditClick = () => {
@@ -12,49 +12,65 @@ const Task = (props) => {
   const handleSave = (e) => {
     e.preventDefault();
     let number = e.currentTarget.id;
-    const { completed, description } = document.forms.namedItem(number);
+    const { completed = false, description = "" } = document.forms.namedItem(number);
     setEdit(!edited);
 
     const body = {
-      completed: completed.checked,
-      description: description.value,
+    completed: completed.checked || false,
+    description: description.value || "",
     };
 
-    props.taskEditParent(props.content._id, body);
+    taskEditParent(content._id, body);
   };
   return (
-    <div>
+    <div className="task-card-container">
       <div>
         {edited ? (
           <div>
-            <h4>{props.content.description}</h4>
-            <input type="checkbox" readOnly checked={props.content.completed} />
+            <div className="task-desc-checkbox">
+              <p>Description: {content.description}</p>
+
+              <div className="edit-task-group">
+                <span>Completed: </span>
+                <input
+                  type="checkbox"
+                  readOnly
+                  checked={content.completed}
+                />
+              </div>
+            </div>
             <button onClick={handleEditClick}>Edit</button>
           </div>
         ) : (
-          <form id={props.index.toString()} onSubmit={handleSave}>
-            <label htmlFor="description">Description</label>
-            <input name="description" className="InputTest" type="text" />
-            <label htmlFor="completed">Completed</label>
+          <form role="form" id={index.toString()} onSubmit={handleSave}>
+            <div className="task-desc-checkbox">
+              <div className="edit-task-group">
+                <label htmlFor="description">Description: </label>
+                <input name="description" className="text-input" type="text" />
+              </div>
 
-            <input
-              type="checkbox"
-              name="completed"
-              defaultChecked={props.content.completed}
-            />
-            <button type="submit" id={props.content._id}>
+              <div className="edit-task-group">
+                <label htmlFor="completed">Completed: </label>
+                <input
+                  type="checkbox"
+                  name="completed"
+                  defaultChecked={content.completed}
+                />
+              </div>
+            </div>
+            <button type="submit" id={content._id}>
               Save
             </button>
           </form>
         )}
       </div>
 
-      <p>{moment(props.content.createdAt).format("MMMM Do, YYYY")}</p>
+      <p>{moment(content.createdAt).format("MMMM Do, YYYY")}</p>
       <button
-        id={props.content._id}
+        id={content._id}
         onClick={(e) => {
           let taskToDelete = e.target.id;
-          props.taskDeleteParent(taskToDelete);
+          taskDeleteParent(taskToDelete);
         }}
       >
         Delete

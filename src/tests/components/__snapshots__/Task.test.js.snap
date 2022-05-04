@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Task correctly 1`] = `
+<div
+  className="task-card-container"
+>
+  <div>
+    <div>
+      <div
+        className="task-desc-checkbox"
+      >
+        <p>
+          Description: 
+          test text
+        </p>
+        <div
+          className="edit-task-group"
+        >
+          <span>
+            Completed: 
+          </span>
+          <input
+            checked={false}
+            readOnly={true}
+            type="checkbox"
+          />
+        </div>
+      </div>
+      <button
+        onClick={[Function]}
+      >
+        Edit
+      </button>
+    </div>
+  </div>
+  <p>
+    May 4th, 2022
+  </p>
+  <button
+    id="FixtureNonSenseID"
+    onClick={[Function]}
+  >
+    Delete
+  </button>
+</div>
+`;

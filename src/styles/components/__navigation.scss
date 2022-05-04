@@ -1,17 +1,13 @@
-.navigation {
-  display: flex;
-  flex-direction: row;
-  padding: $s-size;
-  align-items: center;
-  width: 100%;
-  justify-content: center;
 
-  @media (min-width: $desktop-breakpoint) {
-    flex-direction: row;
-    justify-content: center;
-    width: min-content;
 
-  }
+.navlinks {
+
+  padding-right: $s-size;
+  padding-left: $s-size;
+  border-right: 1px solid $off-white
 }
 
+.navlinks:last-child{
+  border: none
+}
 

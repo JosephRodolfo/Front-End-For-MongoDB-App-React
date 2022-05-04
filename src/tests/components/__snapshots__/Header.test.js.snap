@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Header correctly 1`] = `
+<header
+  className="header"
+>
+  <div
+    className="content-container"
+  >
+    <div
+      className="header-flex-wrapper"
+    >
+      <h1>
+        Task Manager
+      </h1>
+      <Navigation />
+    </div>
+  </div>
+</header>
+`;

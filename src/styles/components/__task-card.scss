@@ -1,0 +1,22 @@
+.task-card-container {
+
+    height: min-content;
+    width: 100%;
+    border: 1px solid black;
+    word-break: break-all;
+    background-color: rgb(255, 229, 229);
+    margin-bottom: $s-size;
+    padding: $s-size;
+}
+
+.task-desc-checkbox {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.edit-task-group {
+    display: flex;
+    flex-direction: row;
+}

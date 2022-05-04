@@ -35,9 +35,10 @@ const Dashboard = () => {
   };
 
   return (
-    <div>
+    <div className="content-container">
       <h1>Task Dashboard</h1>
       <CreateTask createTaskParent={handleCreateTaskParent} />
+      <div className="task-list-container">
 
       {tasks.map((element, index) => {
         return (
@@ -50,7 +51,8 @@ const Dashboard = () => {
           />
         );
       })}
-    </div>
+      </div>
+      </div>
   );
 };
 export default Dashboard;

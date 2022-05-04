@@ -1,0 +1,17 @@
+.navigation {
+  display: flex;
+  flex-direction: row;
+  padding: $s-size;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+
+  @media (min-width: $desktop-breakpoint) {
+    flex-direction: row;
+    justify-content: center;
+    width: min-content;
+
+  }
+}
+
+

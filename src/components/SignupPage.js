@@ -31,16 +31,19 @@ const SignupPage = () => {
 
     <div className="box-layout">
       <div className="box-layout__box">
-        <form onSubmit={handleSubmit}>
-          <h1 className="box-layout__title">Create your account!</h1>
-          <input type="text" name="name" placeholder="name" />
+      <h1 className="box-layout__title">Create your account!</h1>
 
-          <input type="text" name="email" placeholder="email" />
-          <input type="password" name="password" placeholder="password" />
+        <form className="form" onSubmit={handleSubmit}>
+          <div className="input-group">
+          <input type="text" className=".input-group__item text-input" name="name" placeholder="name" />
+
+          <input type="text" className=".input-group__item text-input" name="email" placeholder="email" />
+          <input type="password" className=".input-group__item text-input" name="password" placeholder="password" />
 
           <button className="button" type="submit">
             Submit
             </button>
+            </div>
         </form>
       </div>
     </div>

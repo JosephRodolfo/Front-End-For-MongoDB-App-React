@@ -10,7 +10,7 @@ export const Navigation = () => {
   };
 
   return (
-    <nav>
+    <nav className="navigation">
       <NavLink to="/login">Login</NavLink>
       <NavLink to="/dashboard">Dashboard</NavLink>
       <NavLink to="/signup">Signup</NavLink>

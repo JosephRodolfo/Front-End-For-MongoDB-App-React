@@ -1,0 +1,21 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: $gray;
+    align-items: center;
+    height: min-content;
+    @media (min-width: $desktop-breakpoint) {
+        flex-direction: row;
+
+    }
+}
+
+.header h1 {
+    color: $off-white;
+    
+}
+
+.header  *{
+    margin: 0 $l-size
+}

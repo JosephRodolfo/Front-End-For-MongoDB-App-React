@@ -29,14 +29,16 @@ const LoginPage = () => {
   return (
     <div className="box-layout">
       <div className="box-layout__box">
-        <form onSubmit={handleSubmit}>
-          <h1 className="box-layout__title">Log in</h1>
-          <input type="text" name="username" placeholder="email" />
-          <input type="password" name="password" placeholder="password" />
+      <h1 className="box-layout__title">Log in</h1>
+        <form className="form" onSubmit={handleSubmit}>
+          <div className="input-group">
+          <input className=".input-group__item text-input" type="text" name="username" placeholder="email" />
+          <input className=".input-group__item text-input" type="password" name="password" placeholder="password" />
 
-          <button className="button" type="submit">
+          <button className=".input-group__item button" type="submit">
             Log in
           </button>
+          </div>
         </form>
       </div>
     </div>

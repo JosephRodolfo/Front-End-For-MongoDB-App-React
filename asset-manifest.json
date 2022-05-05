@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Front-End-For-MongoDB-App-React/static/css/main.d58ad3a2.css",
+    "main.js": "/Front-End-For-MongoDB-App-React/static/js/main.796ef6bf.js",
+    "index.html": "/Front-End-For-MongoDB-App-React/index.html",
+    "main.d58ad3a2.css.map": "/Front-End-For-MongoDB-App-React/static/css/main.d58ad3a2.css.map",
+    "main.796ef6bf.js.map": "/Front-End-For-MongoDB-App-React/static/js/main.796ef6bf.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d58ad3a2.css",
+    "static/js/main.796ef6bf.js"
+  ]
+}

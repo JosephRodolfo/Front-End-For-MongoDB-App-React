@@ -1,13 +1,27 @@
-
+nav *{
+  font-family: Roboto;
+  font-size: $font-size-large;
+}
 
 .navlinks {
 
   padding-right: $s-size;
   padding-left: $s-size;
-  border-right: 1px solid $off-white
+  border-right: 1px solid $dark-gray;
+  color: $dark-gray
 }
 
 .navlinks:last-child{
   border: none
+}
+
+.signout-non-button {
+
+  color: $dark-gray;
+  background: none;
+  border: none;
+  padding-right: $s-size;
+  padding-left: $s-size;
+
 }
 

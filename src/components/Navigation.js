@@ -15,7 +15,7 @@ export const Navigation = () => {
       <NavLink className='navlinks'to="/dashboard">Dashboard</NavLink>
       <NavLink className='navlinks' to="/signup">Signup</NavLink>
       {token && (
-        <button className="button button--secondary" type="button" onClick={logout}>
+        <button className="signout-non-button" type="button" onClick={logout}>
           Sign Out
         </button>
       )}

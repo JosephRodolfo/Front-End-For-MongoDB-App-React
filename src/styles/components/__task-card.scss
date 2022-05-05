@@ -1,22 +1,98 @@
-.task-card-container {
-
-    height: min-content;
-    width: 100%;
-    border: 1px solid black;
-    word-break: break-all;
-    background-color: rgb(255, 229, 229);
-    margin-bottom: $s-size;
-    padding: $s-size;
+@mixin icons {
+  height: 2em;
+  width: 2em;
+  filter: invert(100%) sepia(9%) saturate(1857%) hue-rotate(0deg)
+    brightness(109%) contrast(108%);
+  &:hover {
+    cursor: pointer;
+    transition: 1s;
+    filter: invert(66%) sepia(64%) saturate(4541%) hue-rotate(320deg)
+      brightness(99%) contrast(106%);
+  }
 }
 
-.task-desc-checkbox {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.task-card-container {
+  height: min-content;
+  width: 100%;
+  border: 2px solid black;
+  word-break: break-all;
+  border-radius: 10px;
+
+  background-color: $light-pink;
+  margin-bottom: $s-size;
+}
+
+.edit-icon {
+  @include icons;
+}
+
+.delete-icon {
+  @include icons;
+}
+
+.save-icon {
+  @include icons;
+
+}
+
+.save-icon-button {
+    border: none;
+    background: none;
+}
+
+.edit-checkbox-header {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: $dark-pink;
+  padding: $s-size;
+  border-bottom: 2px black solid;
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px;
 }
 
 .edit-task-group {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
+
+.description {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding-right: $s-size;
+  word-break: break-all; 
+}
+
+.task-information-container {
+    padding: $s-size;
+ 
+}
+
+.task-information-container div {
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: $desktop-breakpoint) {
+        flex-direction: row;
+
+
+    }
+
+
+}
+
+.task-information-container textarea {
+    border-radius: 9px;
+
+    flex-grow: 1
+}
+
+
+.task-information-container p {
+
+    font-family: "Roboto", sans-serif;
+
+}
+

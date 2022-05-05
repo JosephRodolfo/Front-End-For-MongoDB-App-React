@@ -9,18 +9,23 @@
 
 .box-layout__box {
 
-    background: fade-out(white, .15);
-    border-radius: 3px;
+    border-radius: 10px;
     text-align: center;
-    width: 25rem;
+    width: 30rem;
+    min-width: min-content;
     padding: $l-size;
+    margin-bottom: $s-size;
+    background-color: $light-pink;
+    border: 2px solid black;
 
-    background-color: $gray;
 
 }
+.box-layout__box  * {
 
+    margin-bottom: $s-size;
+}
 .box-layout__title {
-    color: $off-white;
+    color: $dark-gray;
     margin: 0 0 $m-size 0;
     line-height: 1;
     

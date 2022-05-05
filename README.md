@@ -6,6 +6,6 @@ This is a front end to interact with the Node.js Task Manager Rest client I buil
 
  It was also a challenge in development using two different ports and getting them to communicate on the same local host. But in the process, I learned a lot about CORS and headers and setting them both at a high level and more specifically via middleware in Express. 
 
- I also tried to recreate some of the testing I had done in other tutorials using Enyzme by just using React Testing Library and without Enyzme, trying to use the React Testing Library's philosophy of testing what the user sees rather than internal state (or at least my understanding of it for now. I didn't test everything (some things I quickly realized weren't written in a way as to be super testable, a problem I will remedy in the future from what I learned here but was instructive itself), but a few things to try out important concepts I wanted to practice. 
+ I also tried to recreate some of the testing I had done in other tutorials using Enyzme by just using React Testing Library and without Enyzme, trying to use the React Testing Library's philosophy of testing what the user sees rather than internal state (or at least my understanding of it for now). I didn't test everything (some things I quickly realized weren't written in a way as to be super testable, a problem I will remedy in the future from what I learned here but was instructive itself), but a few things to try out important concepts I wanted to practice. 
   
 

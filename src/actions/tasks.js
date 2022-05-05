@@ -1,6 +1,6 @@
 export const fetchTasks = async (token, setState) => {
   try {
-    const response = await fetch(`${process.env.REACT_APP_PORT}/tasks`, {
+    const response = await fetch(`${process.env.REACT_APP_PORT}tasks`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -22,7 +22,7 @@ export const fetchTasks = async (token, setState) => {
 export const deleteTask = async (token, idParam) => {
   try {
     const response = await fetch(
-      `${process.env.REACT_APP_PORT}/tasks/${idParam}`,
+      `${process.env.REACT_APP_PORT}tasks/${idParam}`,
       {
         method: "DELETE",
         headers: {
@@ -41,7 +41,7 @@ export const deleteTask = async (token, idParam) => {
 
 export const startCreateTask = async (taskInfo, token, setTasks) => {
   try {
-    const response = await fetch(`${process.env.REACT_APP_PORT}/tasks`, {
+    const response = await fetch(`${process.env.REACT_APP_PORT}tasks`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -67,7 +67,7 @@ export const editTask = async (token, idParam, taskInfo, callback) => {
 
   try {
     const response = await fetch(
-      `${process.env.REACT_APP_PORT}/tasks/${idParam}`,
+      `${process.env.REACT_APP_PORT}tasks/${idParam}`,
       {
         method: "PATCH",
         headers: {

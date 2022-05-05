@@ -14,7 +14,9 @@ function AppRouter() {
     <Header />
       <Routes>
         <Route index element={<LoginPage />} />
-        <Route path="login" element={<LoginPage/>} />
+        <Route path="/Front-End-For-MongoDB-App-React" element={<LoginPage/>} />
+
+        <Route path="/login" element={<LoginPage/>} />
         <Route
           path="dashboard"
           element={

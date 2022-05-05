@@ -33,13 +33,13 @@ const Task = ({ taskDeleteParent, taskEditParent, index, content }) => {
                 title="Edit"
                 className="edit-icon"
                 alt="edit task icon"
-                src="/images/edit-icon.png"
+                src="Front-End-For-MongoDB-App-React/images/edit-icon.png"
                 onClick={handleEditClick}
               />
               <div>
                 <img
                   title="Delete"
-                  src="images/delete.png"
+                  src="Front-End-For-MongoDB-App-React/images/delete.png"
                   alt="delete icon button"
                   className="delete-icon"
                   id={content._id}
@@ -55,8 +55,8 @@ const Task = ({ taskDeleteParent, taskEditParent, index, content }) => {
                   readOnly
                   id="cb1"
                 />
-                <label className="checkbox-label" for="cb1">
-                  <div class="tick"></div>
+                <label className="checkbox-label" htmlFor="cb1">
+                  <div className="tick"></div>
                 </label>
               </div>
             </div>
@@ -80,7 +80,7 @@ const Task = ({ taskDeleteParent, taskEditParent, index, content }) => {
                   <img
                     title="Save"
                     className="save-icon"
-                    src="/images/save.png"
+                    src="Front-End-For-MongoDB-App-React/images/save.png"
                     alt="save icon button"
                   />
                 </button>
@@ -88,7 +88,7 @@ const Task = ({ taskDeleteParent, taskEditParent, index, content }) => {
                 <div>
                   <img
                     title="Delete"
-                    src="images/delete.png"
+                    src="Front-End-For-MongoDB-App-React/images/delete.png"
                     className="delete-icon"
                     alt="delete icon button"
                     id={content._id}
@@ -104,8 +104,8 @@ const Task = ({ taskDeleteParent, taskEditParent, index, content }) => {
                     defaultChecked={content.completed}
                     id="cb1"
                   />
-                  <label className="checkbox-label" for="cb1">
-                    <div class="tick"></div>
+                  <label className="checkbox-label" htmlFor="cb1">
+                    <div className="tick"></div>
                   </label>
                 </div>
               </div>

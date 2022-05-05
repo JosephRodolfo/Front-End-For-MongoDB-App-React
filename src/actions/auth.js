@@ -1,5 +1,5 @@
 export const startLogin = async (loginInfo, callback, redirectOnSuccess) => {
-  fetch(`${process.env.REACT_APP_PORT}/users/login`, {
+  fetch(`${process.env.REACT_APP_PORT}users/login`, {
     method: "POST",
 
     headers: {
@@ -23,7 +23,7 @@ export const startLogin = async (loginInfo, callback, redirectOnSuccess) => {
 };
 
 export const startLogout = async (token, callback) => {
-  fetch(`${process.env.REACT_APP_PORT}/users/logout`, {
+  fetch(`${process.env.REACT_APP_PORT}users/logout`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -43,11 +43,12 @@ export const startCreateUser = async (
   callback,
   redirectOnSuccess
 ) => {
-  fetch(`${process.env.REACT_APP_PORT}/users`, {
+  fetch(`${process.env.REACT_APP_PORT}users`, {
     method: "POST",
 
     headers: {
       "Content-Type": "application/json",
+      "Accept": "/"
     },
     body: JSON.stringify(createUserInfo),
   })
